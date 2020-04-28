@@ -1,32 +1,26 @@
 
-const startButton = document.getElementById('start-btn')
-const questionContainerElement = document.getElementById('question-container')
-
-startButton.addEventListener('click', startGame)
-
-function startGame() {
-    console.log('startGame')
-    startButton.classList.add('hide');
-    questionContainerElement.classList.remove('hide')
-
-
-}
-
-
-setNextQuestion = () => {
-
-}
-
-selectAnswer = () => {
-
-}
-
-const questions = [
+let questions = [
     {
-        question: 'what is 2 + 2',
-        answers: [
-            { text: '4', correct: true},
-            { text: '22', correct: false}
-        ]
+        prompt: 'what color are Tomatos? \n (a) Red\n (b) Purpple\n (c) Orange',
+        answer: 'a'
+    },
+    {
+        prompt: 'what color are bananas? \n (a) Teal\n (b) Magenta\n (c) Yellow',
+        answer: 'c'
     }
 ]
+let score = 0;
+
+for (let i = 0; i < questions.length; i++) {
+    let result = window.prompt(questions[i].prompt);
+    if (result == questions[i].answer) {
+        score++;
+        alert('correct');
+    } else {
+        alert('wrong');
+    }
+}
+alert('you got' + score + '/' + questions.length);
+
+
+
